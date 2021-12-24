@@ -1,2 +1,3 @@
-# GM-Toast
-A Toast Extension for GM
+# GM+Toast
+
+A description of this package.
