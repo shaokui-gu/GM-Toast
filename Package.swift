@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "GM+Toast",
+    platforms: [.iOS(.v11)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
@@ -12,7 +13,7 @@ let package = Package(
             targets: ["GM+Toast"]),
     ],
     dependencies: [
-         .package(url: "https://github.com/shaokui-gu/GM.git", from: "0.0.8"),
+         .package(url: "https://github.com/shaokui-gu/GM.git", from: "0.1.0"),
          .package(url: "https://github.com/jdg/MBProgressHUD.git", from: "1.2.0"),
     ],
     targets: [
@@ -21,15 +22,16 @@ let package = Package(
         .target(
             name: "GM+Toast",
             dependencies: [
+                "GM",
                 "MBProgressHUD"
             ],
             path: "Sources",
             resources: [
-                .copy("Assets/Toast.bundle")
+                .process("Toast.bundle"),
             ]
         ),
         .testTarget(
-            name: "GM+ToastTests",
+            name: "ToastTests",
             dependencies: ["GM+Toast"]
         ),
     ]
