@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
     'GM+Toast' => ['Assets/Toast.bundle']
   }
   s.swift_versions = ['5.2', '5.3', '5.4']
-  s.dependency 'GM'
+  s.dependency 'GM', '~> 0.0.8'
   s.dependency 'MBProgressHUD'
   s.requires_arc = true
 end

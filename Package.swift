@@ -12,7 +12,7 @@ let package = Package(
             targets: ["GM+Toast"]),
     ],
     dependencies: [
-         .package(url: "https://github.com/shaokui-gu/GM.git", from: "0.0.7"),
+         .package(url: "https://github.com/shaokui-gu/GM.git", from: "0.0.8"),
          .package(url: "https://github.com/jdg/MBProgressHUD.git", from: "1.2.0"),
     ],
     targets: [
