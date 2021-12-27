@@ -3,7 +3,6 @@ import GM
 import MBProgressHUD
 
 extension MBProgressHUD {
-    
         
     // MARK: 显示错误信息
     public class func showError(_ msg:String = "", to view:UIView?) {
@@ -54,12 +53,11 @@ extension MBProgressHUD {
         // 隐藏时候从父控件中移除
         hud.removeFromSuperViewOnHide = true
         // 2秒之后再消失
-        hud.hide(animated: true, afterDelay: 2.0)
+        hud.hide(animated: true, afterDelay: 1.0)
     }
     
     // MARK: 显示一些信息
-    @discardableResult
-    public class func showMessage(_ msg:String = "", to view:UIView? = nil, hiddenDelay:TimeInterval? = nil) -> MBProgressHUD {
+    public class func showMessage(_ msg:String = "", to view:UIView? = nil){
         let view = view ?? GM.firstKeyWindow!
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.detailsLabel.text = msg
@@ -71,10 +69,7 @@ extension MBProgressHUD {
         hud.mode = .text
         // 隐藏时候从父控件中移除
         hud.removeFromSuperViewOnHide = true
-        if let hiddenDelay = hiddenDelay {
-            hud.hide(animated: true, afterDelay: hiddenDelay)
-        }
-        return hud
+        hud.hide(animated: true, afterDelay: 1.0)
     }
 }
 
