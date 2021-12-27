@@ -4,8 +4,39 @@ import MBProgressHUD
 
 extension MBProgressHUD {
     
+        
+    // MARK: 显示错误信息
+    public class func showError(_ msg:String = "", to view:UIView?) {
+        self.showCustom(msg, icon: "error.png", to: view)
+    }
+    
+    // MARK: 显示成功信息
+    public class func showSuccess(_ msg:String = "", to view:UIView?) {
+        self.showCustom(msg, icon: "success.png", to: view)
+    }
+
+    // MARK: 显示提示信息
+    public class func showTips(_ msg:String = "", to view:UIView?) {
+        self.showMessage(msg, to: view)
+    }
+
+    // MARK: 显示提示信息
+    @discardableResult
+    public class func showLoading(_ msg:String = "", to view:UIView?) -> MBProgressHUD {
+        let view = view ?? GM.firstKeyWindow!
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        hud.detailsLabel.text = msg
+        hud.contentColor = .white
+        hud.detailsLabel.textColor = .white
+        hud.detailsLabel.font = .systemFont(ofSize: 16)
+        hud.bezelView.style = .solidColor;
+        hud.bezelView.color = UIColor(named: "343A40_FFFFFF")
+        hud.mode = .indeterminate
+        return hud
+    }
+    
     // MARK: 显示信息
-    private class func show(_ text:String? = nil, icon:String? = nil, view:UIView? = nil) {
+    private class func showCustom(_ text:String? = nil, icon:String? = nil, to view:UIView? = nil) {
         let view = view ?? GM.firstKeyWindow!
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.detailsLabel.text = text
@@ -26,21 +57,6 @@ extension MBProgressHUD {
         hud.hide(animated: true, afterDelay: 2.0)
     }
     
-    // MARK: 显示错误信息
-    public class func showError(_ msg:String = "", to view:UIView?) {
-        self.show(msg, icon: "error.png", view: view)
-    }
-    
-    // MARK: 显示成功信息
-    public class func showSuccess(_ msg:String = "", to view:UIView?) {
-        self.show(msg, icon: "success.png", view: view)
-    }
-
-    // MARK: 显示提示信息
-    public class func showTips(_ msg:String = "", to view:UIView?) {
-        self.show(msg, view: view)
-    }
-
     // MARK: 显示一些信息
     @discardableResult
     public class func showMessage(_ msg:String = "", to view:UIView? = nil, hiddenDelay:TimeInterval? = nil) -> MBProgressHUD {
@@ -66,7 +82,7 @@ extension MBProgressHUD {
 extension GM {
     
     public static func showLoading(msg:String = "", view:UIView? = nil) {
-        MBProgressHUD.showMessage(msg, to: view)
+        MBProgressHUD.showLoading(msg, to: view)
     }
     
     public static func hideLoading(view:UIView? = nil) {

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "GM+Toast"
-  s.version      = "0.0.6"
+  s.version      = "0.0.7"
   s.summary      = "A Toast Extension for GM"
   s.homepage     = "https://github.com/shaokui-gu/GM-Toast"
   s.license      = 'MIT'
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/shaokui-gu/GM-Toast.git" }
   s.source_files = 'Sources/*.swift'
   s.resource_bundles = {
-    'GM+Toast' => ['Sources/Assets.bundle']
+    'GM+Toast' => ['Sources/Toast.bundle']
   }
   s.swift_versions = ['5.2', '5.3', '5.4']
   s.dependency 'GM'
