@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "GM+Toast"
-  s.version      = "0.0.1"
+  s.version      = "0.0.5"
   s.summary      = "A Toast Extension for GM"
   s.homepage     = "https://github.com/shaokui-gu/GM-Toast"
   s.license      = 'MIT'
