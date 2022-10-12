@@ -48,6 +48,10 @@ extension MBProgressHUD {
         if let icon = icon {
             hud.customView = UIImageView(image: UIImage(named: "Toast.bundle/\(icon)"))
         }
+            
+        hud.margin = 10
+        /// 距离顶部80
+        hud.offset = CGPoint(x: 0, y: -(UIScreen.main.bounds.height / 2 - 100))
         // 再设置模式
         hud.mode = .customView
         // 隐藏时候从父控件中移除
@@ -67,6 +71,9 @@ extension MBProgressHUD {
         hud.bezelView.style = .solidColor;
         hud.bezelView.color = UIColor(named: "343A40_FFFFFF")
         hud.mode = .text
+        hud.margin = 10
+        /// 距离顶部80
+        hud.offset = CGPoint(x: 0, y: -(UIScreen.main.bounds.height / 2 - 100))
         // 隐藏时候从父控件中移除
         hud.removeFromSuperViewOnHide = true
         hud.hide(animated: true, afterDelay: 1.0)
